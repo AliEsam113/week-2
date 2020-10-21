@@ -16,7 +16,7 @@ void pop(stackentry *,stack *);
 int Full(stack *);
 int Empty(stack *);
 void initialize(stack *);
-void stackTop(stackentry *,stack *);
+void stack3rd(stackentry *,stack *);
 int stackSize(stack *);
 void clearStack(stack *);
 void traverseStack(stack *,void(*)(stackentry));
