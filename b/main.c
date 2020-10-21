@@ -17,9 +17,10 @@ int main()
         push(15,&s);
     }
     if(!Empty(&s)){
+        if(exist(&s){
     stackTop(&item,&s);
     printf("the top is :%d \n",item);
-
+        }
     }
     return 0;
 }
