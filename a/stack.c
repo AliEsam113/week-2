@@ -1,4 +1,3 @@
-
 #include "stack.h"
 
 void initialize(stack *ptr)
@@ -33,6 +32,7 @@ int Empty(stack *ptr)
     else
     {
         return 0;
+
     }
 }
 void stackTop(stackentry *pitem,stack *ptr)
