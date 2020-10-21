@@ -21,5 +21,6 @@ int stackSize(stack *);
 void clearStack(stack *);
 void traverseStack(stack *,void(*)(stackentry));
 void display(stackentry e);
+int exist(stack *);
 
 #endif
