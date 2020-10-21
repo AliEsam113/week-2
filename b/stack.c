@@ -48,11 +48,11 @@ void clearStack(stack *ptr)
     ptr->top=0;
 }
 int exist(stack *ptr){
-    if(top>=3{
+    if(ptr->top>=3){
         return 1;
     }
-       else
-       {
-           return 0;
-       }
-       }
+            else
+    {
+        return 0;
+    }
+}
