@@ -35,9 +35,9 @@ int Empty(stack *ptr)
 
     }
 }
-void stackTop(stackentry *pitem,stack *ptr)
+void stack3rd(stackentry *pitem,stack *ptr)
 {
-    *pitem=ptr->entry[ptr->top-1];
+    *pitem=ptr->entry[ptr->top-3];
 }
 int stackSize(stack *ptr)
 {
@@ -47,3 +47,12 @@ void clearStack(stack *ptr)
 {
     ptr->top=0;
 }
+int exist(*ptr){
+    if(top>=3{
+        return 1;
+    }
+       else
+       {
+           return 0;
+       }
+       }
