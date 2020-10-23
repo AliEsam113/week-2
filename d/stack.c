@@ -1,70 +1,47 @@
 #include "stack.h"
-#include <stdlib.h>
-void createStack(stack *ps)
-{
-    ps->top=NULL;
-    ps->size=0;
-}
-void push(stackentry e,stack *ps)
-{
-    stacknode *pn=(stacknode*)malloc(sizeof(stacknode));
-    pn->entry=e;
-    pn->next=ps->top;
-    ps->top=pn;
-    ps->size++;
-}
-int stackFull(stack *ps)
-{
-        return 0;
-}
-void pop(stackentry *pe,stack *ps)
-{
-    *pe=ps->top->entry;
-    stacknode *pn=ps->top;
-    ps->top=ps->top->next;
-    free(pn);
-    ps->size--;
-}
-int stackEmpty(stack *ps)
-{
-    return ps->top==NULL;
-}
-void stackTop(stackentry *pe,stack *ps)
-{
-    *pe=ps->top->entry;
-}
-int stackSize(stack *ps)
-{
 
-    return ps->size;
-}
-void clearStack(stack *ps)
+void initialize(stack *ptr)
 {
-    stacknode *pn=ps->top;
-    while(pn){
-        pn=pn->next;
-        free(ps->top);
-        ps->top=pn;
+    ptr->top=0;
+}
+void push(stackentry item,stack *ptr)
+{
+    ptr->entry[ptr->top++]=item;
+}
+int Full(stack *ptr)
+{
+    if (ptr->top == MAX_STACK)
+    {
+        return 1;
     }
+    else
+    {
+        return 0;
+    }
+}
+void pop(stackentry *pitem,stack *ptr)
+{
+    *pitem=ptr->entry[--ptr->top];
+}
+int Empty(stack *ptr)
+{
+    if(ptr->top==0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+
+    }
+}
+void clear(stack *ps){
+    ps->top=0;
 }
 void traverseStack(stack *ps,void(*pf)(stackentry))
 {
-    stacknode *pn=ps->top;
-    while(pn){
-        (*pf)(pn->entry);
-        pn=pn->next;
-    }
-}
-void occur(stackentry e,stack *ps) {
-    stacknode *pn = ps->top;
-    while (pn) {
-        if (e == ps->top->entry) {
-            pn=pn->next;
-            free(ps->top);
-            ps->top=pn;
-        }
-        else {
-            pn=pn->next;
-        }
+    int i;
+    for(i=ps->top;i>0;i--){
+        (*pf)(ps->entry[i-1]);
     }
 }

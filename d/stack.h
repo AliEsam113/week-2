@@ -5,25 +5,19 @@
 #define MAX_STACK 100
 
 typedef int stackentry;
-typedef struct stackNode{
-    stackentry entry;
-    struct stackNode *next;
-}stacknode;
-typedef struct Stack{
-    stacknode *top;
-    int size;
-
+typedef struct Stack
+{
+    int top;
+    stackentry entry[MAX_STACK];
 } stack;
-void occur(stackentry,stack *);
+
 void push(stackentry,stack *);
 void pop(stackentry *,stack *);
-int stackFull(stack *);
-int stackEmpty(stack *);
-void createStack(stack *);
-void stackTop(stackentry *,stack *);
-int stackSize(stack *);
-void clearStack(stack *);
+int Full(stack *);
+int Empty(stack *);
+void initialize(stack *);
 void traverseStack(stack *,void(*)(stackentry));
 void display(stackentry e);
+void clear(stack *);
 
 #endif
